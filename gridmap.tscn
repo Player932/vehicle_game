@@ -1,0 +1,105 @@
+[gd_scene load_steps=13 format=3 uid="uid://b3k1abag3m8ph"]
+
+[ext_resource type="Texture2D" uid="uid://bqpkpowg7efw3" path="res://icon.svg" id="1_7si5r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_epta5"]
+albedo_texture = ExtResource("1_7si5r")
+uv1_scale = Vector3(0.04, 0.04, 0.04)
+uv1_offset = Vector3(12.5, 12.5, 12.5)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_lqd4r"]
+material = SubResource("StandardMaterial3D_epta5")
+size = Vector3(25, 0.5, 25)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dteia"]
+points = PackedVector3Array(-12.5, -0.25, -12.5, -12.5, 0.25, -12.5, 12.5, -0.25, -12.5, -12.5, -0.25, 12.5, -12.5, 0.25, 12.5, 12.5, 0.25, -12.5, 12.5, -0.25, 12.5, 12.5, 0.25, 12.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lu4jy"]
+material = SubResource("StandardMaterial3D_epta5")
+size = Vector3(25, 25, 25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_famuh"]
+size = Vector3(25, 25, 25)
+
+[sub_resource type="PrismMesh" id="PrismMesh_a5hkp"]
+material = SubResource("StandardMaterial3D_epta5")
+left_to_right = 0.0
+size = Vector3(25, 25, 25)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_k4edr"]
+points = PackedVector3Array(-12.5, 12.5, 12.5, 12.5, -12.5, 12.5, -12.5, 12.5, -12.5, -12.5, -12.5, 12.5, 12.5, -12.5, -12.5, -12.5, -12.5, -12.5)
+
+[sub_resource type="PrismMesh" id="PrismMesh_um0yw"]
+material = SubResource("StandardMaterial3D_epta5")
+left_to_right = 0.0
+size = Vector3(25, 12.5, 25)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rxmdm"]
+points = PackedVector3Array(-12.5, -6.25, -12.5, -12.5, 6.25, -12.5, 12.5, -6.25, -12.5, -12.5, -6.25, 12.5, -12.5, 6.25, 12.5, 12.5, -6.25, 12.5)
+
+[sub_resource type="PrismMesh" id="PrismMesh_2cjvj"]
+material = SubResource("StandardMaterial3D_epta5")
+left_to_right = 0.0
+size = Vector3(25, 6.25, 25)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_47dl0"]
+points = PackedVector3Array(-12.5, -3.125, -12.5, -12.5, 3.125, -12.5, 12.5, -3.125, -12.5, -12.5, -3.125, 12.5, -12.5, 3.125, 12.5, 12.5, -3.125, 12.5)
+
+[node name="gridmap" type="Node3D"]
+
+[node name="block1" type="Node3D" parent="."]
+
+[node name="block1" type="MeshInstance3D" parent="block1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+mesh = SubResource("BoxMesh_lqd4r")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="block1/block1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block1/block1/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_dteia")
+
+[node name="block2" type="Node3D" parent="."]
+
+[node name="block2" type="MeshInstance3D" parent="block2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.5, 0)
+mesh = SubResource("BoxMesh_lu4jy")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="block2/block2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block2/block2/StaticBody3D"]
+shape = SubResource("BoxShape3D_famuh")
+
+[node name="block3" type="Node3D" parent="."]
+
+[node name="block3" type="MeshInstance3D" parent="block3"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 12.5, 0)
+mesh = SubResource("PrismMesh_a5hkp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="block3/block3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block3/block3/StaticBody3D"]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_k4edr")
+
+[node name="block4" type="Node3D" parent="."]
+
+[node name="block4" type="MeshInstance3D" parent="block4"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 6.25, 0)
+mesh = SubResource("PrismMesh_um0yw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="block4/block4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block4/block4/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_rxmdm")
+
+[node name="block5" type="Node3D" parent="."]
+
+[node name="block5" type="MeshInstance3D" parent="block5"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 3.125, 0)
+mesh = SubResource("PrismMesh_2cjvj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="block5/block5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block5/block5/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_47dl0")

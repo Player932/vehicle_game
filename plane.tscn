@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cb5l2p4e3uyrt"]
+
+[ext_resource type="Script" path="res://plane.gd" id="1_b05he"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cdowe"]
+height = 3.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_x5w3q"]
+height = 3.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_5tjq6"]
+size = Vector3(3, 0.25, 1)
+
+[node name="plane" type="CharacterBody3D"]
+script = ExtResource("1_b05he")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_cdowe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_x5w3q")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+mesh = SubResource("BoxMesh_5tjq6")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 2, 3)
